@@ -71,12 +71,16 @@ mat-flat-button {
     border: none;
 }
 .btn-primary{
-    min-width: 80px;
-    font-size: 14px;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     background-color: #1a73e8;
+    padding: 10px;
     border: none;
+}
+.btn-primary:hover{
+    background-color: #006eff;
+    color: black;
+    box-shadow: 0px 0px 8px black;
 }
 
 .btn-basic:hover{
@@ -85,11 +89,6 @@ mat-flat-button {
     border-radius: 5px;
 }
 
-.btn-primary:hover{
-    background-color: #006eff;
-    color: rgb(30, 29, 29);
-    box-shadow: 0px 0px 8px gray;
-}
 
 .buttons{
     display: flex;
