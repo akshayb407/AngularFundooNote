@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Userservice } from 'src/app/Services/userServices/user.service';
 
 
 @Component({
@@ -11,26 +12,39 @@ export class ResetPasswordComponent implements OnInit {
   resetPasswordForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private userService: Userservice) { }
   ngOnInit() {
     this.resetPasswordForm = this.formBuilder.group({
-        password: ['', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]).{8,}$")]],
-        confirmPassword: ['', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@?^*!~]).{8,}$")]]
+        password: ['', [Validators.required,Validators.minLength(8)]],
+        confirmPassword: ['', [Validators.required,Validators.minLength(8)]]
     });
 }
     // convenience getter for easy access to form fields
-    get f() { return this.resetPasswordForm.controls; }
+   // get f() { return this.resetPasswordForm.controls; }
 
     onSubmit() {
-        this.submitted = true;
+        if (this.resetPasswordForm.valid) {
+            console.log("valid data", this.resetPasswordForm.value);
+            console.log("do api call");
 
-        // stop here if form is invalid
-        if (this.resetPasswordForm.invalid) {
-            return;
+            // do api calling
+            let Data = {
+                password: this.resetPasswordForm.value.password,
+                confirmPassword: this.resetPasswordForm.value.confirmPassword
+            }
+            console.log(Data)
+            this.userService.reset(Data).subscribe((res: any) => {
+                console.log('reset password successful', res);
+                console.log(Data);
+            })
+        }
+        else {
+            console.log('invalid data', this.resetPasswordForm.value);
+            console.log('no api call');
         }
 
-        // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.resetPasswordForm.value, null, 4));
+
+
     }
 
     onReset() {

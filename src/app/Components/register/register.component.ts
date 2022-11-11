@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Userservice } from 'src/app/Services/userServices/user.service';
 
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,11 +18,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.pattern("^[A-Z]{1}[a-z]{2,}$")]],
-      lastName: ['', [Validators.required, Validators.pattern("^[A-Z]{1}[a-z]{2,}$")]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
      // userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern("^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[&%$#@?^*!~]).{8,}$")]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
   }
   );
@@ -29,27 +30,24 @@ export class RegisterComponent implements OnInit {
  
 onSubmit() {
   if (this.registerForm.valid){
-   console.log('valid data',this.registerForm.value);
-   console.log('do api call');
+   console.log("valid data",this.registerForm.value);
+   console.log("do api call");
 
   // do api calling
        let Data = {
-                    firstName : this.registerForm.value.firstName,
-                    lastName: this.registerForm.value.lastName,
-                    email: this.registerForm.value.email,
+                   ResetPasswordComponent: this.registerForm.value.email,
                     password: this.registerForm.value.password
                   }
-                  this.userService.register(Data).subscribe((response:any)=>{
-                  console.log('Register successful', response);
-
+                  this.userService.register(Data).subscribe((res:any)=>{
+                  console.log('Register successful', res);
+                  console.log(Data);
                   })
                 }
                 else{
                   console.log('invalid data',this.registerForm.value);
                   console.log('no api call');
                 }
-  // display form values on success
- // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+  
 }
 
 onReset() {

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class Httpservice {
 
   constructor(private httpClient: HttpClient) { }
-  postService(url: any, Data: any, token: boolean = false, Options: any ) {
+  postService(url: any, Data: any, token: boolean = false,Options: any ) {
     return this.httpClient.post(url, Data, token && Options);
   }
 
