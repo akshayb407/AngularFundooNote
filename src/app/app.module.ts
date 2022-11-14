@@ -5,6 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './Components/register/register.component';
@@ -15,6 +19,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { DashBoardComponent } from './Components/dash-board/dash-board.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,9 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashBoardComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,11 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
