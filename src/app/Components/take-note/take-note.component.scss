@@ -1,0 +1,65 @@
+// .take-note{
+//     text-align: center;
+//     margin: 0px 20% 0px 20%;
+// }
+.take-note{
+   margin: 20px 0px 20px 0px;
+   // margin: 0px 40% 0px 40%;
+    display: flex;
+    width: 580px;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px gray;
+    border: 1px solid lightgray;
+  
+}
+.mat-flatt-button{
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    margin-left: 535px;
+}
+.btns{
+  // margin-left: 535px;
+   float: right;
+    margin-top: -35px;
+}
+
+.mat{
+    //margin-left: 535px;
+   float: right;
+}
+
+// .btn{
+//     align-items: flex-end;
+//  float: left;
+// }
+// button:btn-basic{
+//  align-items: flex-end;
+//  float: left;
+// }
+button:hover{
+    background-color: rgb(247, 233, 217) ;
+    align-items: flex-end;
+   
+}
+
+ ::placeholder{
+    font-size: 16px;
+}
+.description{
+    font-size: 16px;
+}
+
+@media (max-width: 800px) {
+   .take-note{
+       width: 450px ;
+   }
+}
+
+ @media (max-width: 620px) {
+    .take-note{
+        width: 350px ;
+    }
+ }

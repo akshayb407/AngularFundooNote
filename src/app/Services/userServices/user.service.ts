@@ -7,7 +7,9 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class Userservice {
 
-  constructor(private httpService :Httpservice) { }
+  constructor(private httpService :Httpservice) { 
+ 
+  } 
 
   register(Data : any){
     console.log(Data)
@@ -45,6 +47,7 @@ export class Userservice {
       headers:new HttpHeaders({
         'Content-Type': 'application/json'
         //'Authorization':'token'
+        //'Authorization':`Bearer ${this.token}
       })
     }
     return this.httpService.postService('https://localhost:44353/api/Users/Reset',Data,false,header);

@@ -1,0 +1,30 @@
+.take-note{
+    margin: 90pt;
+    display: flex;
+    flex-direction: column;
+    align-content:right;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px gray;
+    border: 1px solid lightgray;
+    max-width: 300px;
+    
+  
+    
+}
+.mat{
+    margin-left: 260px;
+
+    margin-top: -50px;
+}
+.icons{
+    margin-right: 500px;
+    text-align: right;
+ 
+  }
+.image{
+    align-items: flex-end;
+    float: left;
+}
+button:hover{
+    background-color: rgb(247, 233, 217) ;
+}
