@@ -6,7 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class Userservice {
-
+  token:any;
   constructor(private httpService :Httpservice) { 
  
   } 
@@ -26,7 +26,7 @@ export class Userservice {
     let header = {
       headers:new HttpHeaders({
         'Content-Type': 'application/json'
-        // 'Authorization':'token'
+        //'Authorization':'token'
       })
     }
     return this.httpService.postService('https://localhost:44353/api/Users/LoginUser', Data, false, header);

@@ -1,4 +1,3 @@
-import {MediaMatcher} from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/Services/notesServices/notes.service';
 
@@ -10,20 +9,20 @@ import { NotesService } from 'src/app/Services/notesServices/notes.service';
 })
 export class DashBoardComponent implements OnInit {
   public sidenavText : boolean=true;
- //constructor() { }
+ 
   constructor(private notesService : NotesService) { }
 
   ngOnInit(): void {
   }
 
   // getAllNotes(){
-  //   this.notesService.getallNotes().subscribe((response:any)=>{
+  //   this.notesService.getNotes().subscribe((response:any)=>{
   //     console.log("GetAll Notes successful", response);
   //   })
   // }
 
-  // sideNav(){
-  //   this.sidenavText = !this.sidenavText
-  // }
+  sideNav(){
+    this.sidenavText = !this.sidenavText
+  }
 
 }

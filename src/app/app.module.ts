@@ -31,7 +31,6 @@ import { TakeNoteComponent } from './Components/take-note/take-note.component';
 import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayNoteComponent } from './Components/display-note/display-note.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +45,7 @@ import { DisplayNoteComponent } from './Components/display-note/display-note.com
     TakeNoteComponent,
     IconsComponent,
     DisplayNoteComponent,
+  
     
   ],
   imports: [

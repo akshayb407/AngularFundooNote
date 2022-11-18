@@ -1,65 +1,45 @@
-// .take-note{
-//     text-align: center;
-//     margin: 0px 20% 0px 20%;
-// }
-.take-note{
-   margin: 20px 0px 20px 0px;
-   // margin: 0px 40% 0px 40%;
-    display: flex;
-    width: 580px;
-    flex-direction: column;
-    align-content: center;
-    border-radius: 10px;
-    box-shadow: 1px 1px 4px gray;
-    border: 1px solid lightgray;
+.inputbox-pannel{
+  border: 0px solid;
+  width: 230px;
+  height: 51px;
+  outline: none;
+  font-size: 20px;
+}
+.matcreatenotebox{
+  
+  margin-left: 40%;
+  box-shadow: 2px 2px 2px 2px silver;
+  width: 315px;
+  margin-top: 15px;
+}
+.clsbtn{
+  margin-left: 70px;
   
 }
-.mat-flatt-button{
-    justify-content: flex-end;
-    align-items: flex-end;
-    text-align: right;
-    margin-left: 535px;
+.sideicon{
+width:22px;
+margin-left: 6px;
+margin-top: 20px;
+
 }
-.btns{
-  // margin-left: 535px;
-   float: right;
-    margin-top: -35px;
+.clsbtn{
+margin-left: -10px;
+}
+.closetab{
+text-decoration: none;
+color: black;
+margin-left: 274px;
+margin-top: -25px;
+}
+.pinsicon{
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: -18px;
+  margin-left: 30px;
+  width: 40px;
 }
 
-.mat{
-    //margin-left: 535px;
-   float: right;
+.btncls{
+margin-top: -40px;
+font-size: 18px;
 }
-
-// .btn{
-//     align-items: flex-end;
-//  float: left;
-// }
-// button:btn-basic{
-//  align-items: flex-end;
-//  float: left;
-// }
-button:hover{
-    background-color: rgb(247, 233, 217) ;
-    align-items: flex-end;
-   
-}
-
- ::placeholder{
-    font-size: 16px;
-}
-.description{
-    font-size: 16px;
-}
-
-@media (max-width: 800px) {
-   .take-note{
-       width: 450px ;
-   }
-}
-
- @media (max-width: 620px) {
-    .take-note{
-        width: 350px ;
-    }
- }
