@@ -1,25 +1,12 @@
-<mat-card class="take-note">
-
-  <!-- <div fxLayout="row" fxLayoutAlign="space-between center"> -->
-    <!-- <mat-card-title >  -->
-    <div>
-    <input matInput class="mat-title" placeholder="Display Title" required>
-  </div>  
-  
-    <!-- </mat-card-title> -->
-    <!-- <button class="mat" mat-icon-button>  <img src="../../../assets/Note-icons/pin.svg"  margin="200px" width="20px" height="20px"></button> -->
-    <button class="mat" mat-icon-button matTooltip="Pin" (click)="pinUnPin();" *ngIf="!isPin"> <img src="../../../assets/Note-icons/pin.svg" width="20px" height="20px"></button>
-    <button class="mat" mat-icon-button matTooltip="Unpin" (click)="pinUnPin();" *ngIf="isPin"> <img src="../../../assets/Note-icons/pinned.svg" width="20px" height="20px"></button>
- 
-  <!-- </div> -->
-
-  <!-- <div fxLayout="row" fxLayoutAlign="space-between center"> -->
-  <!-- <textarea matInput placeholder="Display note..." style="width: 100%; height:max-content;" required> </textarea> -->
-  <!-- </div> -->
-
-  <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
-    <app-icons></app-icons>
-    <!-- <button mat-flat-button class="btn-basic" flexali>Close</button> -->
-  </mat-card-actions>
-
-</mat-card>
+<div class="boxsize">
+  <div *ngFor="let notes of childMessage" class="con">
+  <mat-card class="mat-box">
+      <div (click)="openDialog(notes)">
+      <h2 (click)="openDialog(notes)">{{notes.title}}</h2>
+      <p (click)="openDialog(notes)">{{notes.description}}</p>
+      <!-- <div> {{notes.noteId}}</div> -->
+      </div>
+      <app-icons></app-icons>
+  </mat-card>
+  </div>
+  </div>

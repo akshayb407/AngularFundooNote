@@ -30,6 +30,7 @@ import { TrashComponent } from './Components/trash/trash.component';
 import { TakeNoteComponent } from './Components/take-note/take-note.component';
 import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayNoteComponent } from './Components/display-note/display-note.component';
+import { UpdateNotesComponent } from './Components/update-notes/update-notes.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { DisplayNoteComponent } from './Components/display-note/display-note.com
     TakeNoteComponent,
     IconsComponent,
     DisplayNoteComponent,
+    UpdateNotesComponent,
   
     
   ],
