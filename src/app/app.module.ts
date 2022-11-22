@@ -32,6 +32,7 @@ import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayNoteComponent } from './Components/display-note/display-note.component';
 import { UpdateNotesComponent } from './Components/update-notes/update-notes.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { UpdateNotesComponent } from './Components/update-notes/update-notes.com
     IconsComponent,
     DisplayNoteComponent,
     UpdateNotesComponent,
+
   
     
   ],

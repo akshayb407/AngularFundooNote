@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotesService } from 'src/app/Services/notesServices/notes.service';
+//import { NotesService } from 'src/app/Services/notesServices/notes.service';
 
 
 @Component({
@@ -8,9 +8,9 @@ import { NotesService } from 'src/app/Services/notesServices/notes.service';
   styleUrls: ['dash-board.component.scss'],
 })
 export class DashBoardComponent implements OnInit {
-  public sidenavText : boolean=true;
- 
-  constructor(private notesService : NotesService) { }
+  //public sidenavText: boolean = true;
+
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -21,8 +21,7 @@ export class DashBoardComponent implements OnInit {
   //   })
   // }
 
-  sideNav(){
-    this.sidenavText = !this.sidenavText
-  }
-
+  // sideNav() {
+  //   this.sidenavText = !this.sidenavText
+  // }
 }

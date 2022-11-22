@@ -9,12 +9,12 @@ import { MatDialogRef ,MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class UpdateNotesComponent implements OnInit {
   title: any
-  description: any
+  note: any
   id: any
   constructor(private notes:NotesService ,  public dialogRef: MatDialogRef<UpdateNotesComponent>,  @Inject(MAT_DIALOG_DATA) public data: any) {
     this.title=data.title;
-    this.description=data.description;
-    this.id=data.noteId;
+    this.note=data.note;
+    this.id=data.noteID;
    }
 
   ngOnInit(): void {
@@ -22,8 +22,8 @@ export class UpdateNotesComponent implements OnInit {
   closeDialog() {
     let reqData = {
       title: this.title,
-      description: this.description,
-      noteId: this.id,
+      note: this.note,
+      noteID: this.id,
     }
     this.notes.updateNotes(reqData, this.id).subscribe((response:any) =>{ 
       console.log("update response", response); 
