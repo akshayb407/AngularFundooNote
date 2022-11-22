@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,EventEmitter, OnInit,Output } from '@angular/core';
+import { NotesService } from 'src/app/Services/notesServices/notes.service';
 
 @Component({
   selector: 'app-archive',
@@ -7,9 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArchiveComponent implements OnInit {
 
-  constructor() { }
+  archiveList: any;
+  constructor(private note:NotesService) { }
 
   ngOnInit(): void {
+    this.getArchiveNotes();
   }
-
+  getArchiveNotes(){
+    this.note.getNotes().subscribe((Response:any)=>{
+      this.archiveList=Response;
+      this.archiveList.reverse();
+      this.archiveList=this.archiveList.filter((Object:any)=>{
+        return Object.isArchive==true;
+      })
+      console.log("Archive notes ",this.archiveList);
+      
+    })
+  // getArchiveNotes(){
+  //   this.note.getNotes().subscribe((response:any)=>{
+  //     this.archiveList=response;
+  //     // console.log(this.archiveList);
+  //     this.archiveList.reverse();
+  //     this.archiveList=this.archiveList.filter((object:any)=>{
+  //      return object.isArchieve==true;
+  //     })
+  //     console.log("Archive notes ",this.archiveList);
+  //     // this.messageEvent.emit(response)
+  //    })
+  // } 
+  // receiveMessage(event: any) {
+  //   this.getArchiveNotes();
+  // }} 
+  }
 }

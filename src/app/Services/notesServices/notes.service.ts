@@ -54,4 +54,14 @@ export class NotesService {
     }
     return this.httpService.putservice('https://localhost:44353/api/Notes/Archive?noteid='+data,{},true,header);
    }
+   TrashNotes(data:any){
+    console.log(data);
+    let header={
+      headers:new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.putservice('https://localhost:44353/api/Notes/Trash?noteid='+data,{},true,header);
+  }
 }

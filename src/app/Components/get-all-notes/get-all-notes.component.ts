@@ -15,17 +15,36 @@ export class GetAllNotesComponent implements OnInit {
   ngOnInit(): void {
     this.getAllNotes();
   }
-  getAllNotes(){
-    
-    this.notes.getNotes().subscribe((response:any)=>{
+  getAllNotes() {
+
+    this.notes.getNotes().subscribe((response: any) => {
       //console.log(response);
-      this.noteArray=response;
-      //this.noteArray=this.noteArray.reverse()
-     console.log(this.noteArray)
+      this.noteArray = response;
+      this.noteArray = this.noteArray.reverse()
+      console.log(this.noteArray)
+      this.noteArray = this.noteArray.filter((object: any) => {
+        return object.isArchive == false;
+      })
+      //console.log(this.noteArray)
     })
-    }
-    receiveMeassage(e:any){
-      console.log(e);
+  }
+  receiveMeassage(e: any) {
+    console.log(e);
     this.getAllNotes();
-    }
-     }
+  }
+
+  // getAllNotes(){
+    
+  //   this.notes.getNotes().subscribe((response:any)=>{
+  //     //console.log(response);
+  //     this.noteArray=response;
+  //     //this.noteArray=this.noteArray.reverse()
+  //    console.log(this.noteArray)
+  //   })
+  //   }
+  //   receiveMeassage(e:any){
+  //     console.log(e);
+  //   this.getAllNotes();
+  //   }
+  //    }
+}
