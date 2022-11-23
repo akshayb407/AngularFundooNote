@@ -9,6 +9,7 @@ import { UpdateNotesComponent } from '../update-notes/update-notes.component';
 })
 export class DisplayNoteComponent implements OnInit {
   @Input() childMessage:any;
+  getAllNotes: any;
   
 
   //show=false;
@@ -25,7 +26,7 @@ export class DisplayNoteComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(response => {
       console.log('The dialog was closed', response);
-      //this.getAllNotes.emit(response);
+      this.getAllNotes.emit(response);
     })
   }
   // openDialog(notes:any): void {

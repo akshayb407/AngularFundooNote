@@ -20,6 +20,7 @@ export class ArchiveComponent implements OnInit {
       this.archiveList.reverse();
       this.archiveList=this.archiveList.filter((Object:any)=>{
         return Object.isArchive==true;
+        // return Object.isArchieve==true && Object.isTrash == false;
       })
       console.log("Archive notes ",this.archiveList);
       

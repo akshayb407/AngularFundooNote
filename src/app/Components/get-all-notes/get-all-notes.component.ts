@@ -25,7 +25,7 @@ export class GetAllNotesComponent implements OnInit {
       this.noteArray = this.noteArray.filter((object: any) => {
         return object.isArchive == false;
       })
-      //console.log(this.noteArray)
+      console.log(this.noteArray)
     })
   }
   receiveMeassage(e: any) {

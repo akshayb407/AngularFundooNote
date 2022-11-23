@@ -64,4 +64,17 @@ export class NotesService {
     }
     return this.httpService.putservice('https://localhost:44353/api/Notes/Trash?noteid='+data,{},true,header);
   }
+     
+NotesColor(data:any){
+  let header = {
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': 'Bearer '+ this.token
+    })
+  }
+  
+  return this.httpService.putservice(`https://localhost:44353/api/Notes/Color?noteid=${data.noteID}&color=${data.color}`,{},true,header)
+}
+//https://localhost:44353/api/Notes/Color?noteid=69&color=blue
+
 }
