@@ -27,7 +27,7 @@ export class UpdateNotesComponent implements OnInit {
     }
     this.notes.updateNotes(reqData, this.id).subscribe((response:any) =>{ 
       console.log("update response", response); 
-      //this.noteUpdated.emit(response);
+
     })
     this.dialogRef.close()
   }

@@ -23,7 +23,7 @@ export class GetAllNotesComponent implements OnInit {
       this.noteArray = this.noteArray.reverse()
       console.log(this.noteArray)
       this.noteArray = this.noteArray.filter((object: any) => {
-        return object.isArchive === false && object.isTrash===false;
+        return object.isArchive == false;
       })
       console.log(this.noteArray)
     })
