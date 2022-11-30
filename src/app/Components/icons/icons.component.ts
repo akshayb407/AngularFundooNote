@@ -10,27 +10,29 @@ import { ArchiveComponent } from '../archive/archive.component';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-  @Input() noteObject:any;
+  @Input() noteObject: any;
   @Output() displayicons = new EventEmitter<string>();
+  @Output() refreshcolor=new EventEmitter<any>();
+  @Output() trashrefresh=new EventEmitter<any>();
+  @Output() archiverefresh=new EventEmitter<any>(); 
 
-  
   isArchieve: boolean = false;
   isTrash: boolean = false;
-  colorArray =[{colorCode:"maroon"},
-  {colorCode:"silver"},
-  {colorCode:"Yellow"},
-  {colorCode:"Purple"},
-  {colorCode:"pink"},
-  {colorCode:"chocolate"},
-  {colorCode:"Wheat"},
-  {colorCode:"indigo"},
-  {colorCode:"hotpink"},
-  {colorCode:"lightblue"},
-  {colorCode:"green"},
-  {colorCode:"olive"}];
+  colorArray = [{ colorCode: "Red" },
+  { colorCode: "Orange" },
+  { colorCode: "Yellow" },
+  { colorCode: "Green" },
+  { colorCode: "Teal" },
+  { colorCode: "Blue" },
+  { colorCode: "Purple" },
+  { colorCode: "Pink" },
+  { colorCode: "Brown" },
+  { colorCode: "Gray" },
+  { colorCode: "White" },
+  { colorCode: "olive" }];
   noteListId: any;
 
-  constructor(private note:NotesService,private route:ActivatedRoute) { }
+  constructor(private note: NotesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     let component = this.route.snapshot.component;
@@ -42,58 +44,69 @@ export class IconsComponent implements OnInit {
     }
   }
   onArchive() {
-    let reqData={
-      NoteID:[this.noteObject.noteID],
+    let reqData = {
+      NoteID: [this.noteObject.noteID],
     }
     console.log(reqData);
     this.note.ArchiveNotes(this.noteObject.noteID).subscribe((response: any) => {
-      console.log("Note Archived Successfully",response);
-      // window.location.reload();
+      console.log("Note Archived Successfully", response);
+      this.archiverefresh.emit(response);
+      console.log(response)
     })
   }
-  onDelete() {
-        let reqData={
-          NoteID:[this.noteObject.noteID],
-        }
-        console.log(reqData)
-        this.note.TrashNotes(this.noteObject.noteID).subscribe((response: any) => {
-          console.log("Note trash Successfully",response);
-          
-        })
-      }
-
-
-  selectColor(color:any)
-  {
-    this.noteListId = this.noteObject.color = color;
-    let reqData = {
-      color: color,
-      NoteID:this.noteObject.noteID,      
-    };
-    this.note.NotesColor(reqData).subscribe((response: any) => {
-      console.log(response);
-      console.log("color", reqData)
-    })
-  }   
-
   onUnArchievenote() {
 
     this.note.ArchiveNotes(this.noteObject.noteID).subscribe((response: any) => {
       console.log(response);
+      //window.location.reload();
+      this.displayicons.emit(response);
+    })
+  }
+  selectColor(color: any) {
+    this.noteListId = this.noteObject.color = color;
+    let reqData = {
+      noteID: this.noteObject.noteID,
+      color: color,
+    };
+    console.log("color", reqData)
+    this.note.NotesColor(reqData).subscribe((response: any) => {
+      console.log(response);
 
     })
   }
+  onTrash() {
+    let reqData = {
+      noteID: [this.noteObject.noteID],
+    }
+    console.log(reqData)
+    this.note.TrashNotes(this.noteObject.noteID).subscribe((response: any) => {
+      console.log("Note trash Successfully", response);
+      //window.location.reload()
+      this.trashrefresh.emit(response);
+      console.log(response)
+    })
+  }
+  onDelete() {
+    let reqData = {
+      noteID: [this.noteObject.noteID],
+    }
 
+    this.note.DeleteNotes(this.noteObject.noteID).subscribe((response: any) => {
+      console.log("Note trash Successfully", response);
+      console.log(reqData)
+      //window.location.reload();
+      this.trashrefresh.emit(response);
+    })
+  }
   onRestore() {
 
-    this.note.ArchiveNotes(this.noteObject.noteID).subscribe((response: any) => {
+    this.note.TrashNotes(this.noteObject.noteID).subscribe((response: any) => {
       console.log(response);
 
 
     })
   }
 }
-
 
 
 

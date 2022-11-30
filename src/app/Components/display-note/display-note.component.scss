@@ -8,14 +8,17 @@ mat-box{
 .boxsize
 {
     display: flex; flex-flow: row wrap;padding-left: 54px;
+    
 }
 .con{
     padding-left: 36px;
     display: flex;
     padding-bottom: 40px;
+    margin-top: 30px;
 }
 .con>mat-card{
 padding: 25px;
+width: 300px;
 }
 .icons{
     margin-top: 42px;

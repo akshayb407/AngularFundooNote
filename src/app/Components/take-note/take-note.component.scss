@@ -4,13 +4,17 @@
   height: 51px;
   outline: none;
   font-size: 20px;
+  
+  
 }
 .matcreatenotebox{
-  
-  margin-left: 40%;
+  width: 26%;
+  margin-left: 30%;
   box-shadow: 2px 2px 2px 2px silver;
-  width: 315px;
+  width: fit-content;
+  width: 400px;
   margin-top: 15px;
+  width: 679px;
   margin-bottom: 40px;
 }
 .clsbtn{
@@ -25,22 +29,28 @@ margin-top: 20px;
 }
 .clsbtn{
 margin-left: -10px;
+margin: 2px;
+
 }
 .closetab{
-text-decoration: none;
-color: black;
-margin-left: 274px;
-margin-top: -25px;
+  text-decoration: none;
+  color: black;
+  margin-left: 610px;
+  margin-top: -39px;
+  font-size: 8;
+  font-size: .875r;
+  font-size: 18px;
 }
 .pinsicon{
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: -18px;
-  margin-left: 30px;
-  width: 40px;
+  margin-left: 415px;
+  width: 26px;
+  margin-top: -52px;
 }
-
 .btncls{
 margin-top: -40px;
 font-size: 18px;
+}
+.cardtopimgs{
+  padding-left: 349px;
+
 }

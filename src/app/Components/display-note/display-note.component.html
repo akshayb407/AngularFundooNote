@@ -1,12 +1,12 @@
 <div class="boxsize">
   <div *ngFor="let notes of childMessage" class="con">
-  <mat-card class="mat-box">
+  <mat-card class="mat-box"[style.background]="notes.color">
       <div (click)="openDialog(notes)">
       <h2 (click)="openDialog(notes)">{{notes.title}}</h2>
       <p (click)="openDialog(notes)">{{notes.note}}</p>
       <!-- <div> {{notes.noteId}}</div> -->
       </div>
-      <app-icons [noteObject]="notes"></app-icons>
+      <app-icons [noteObject]="notes"(archiverefresh)="notearchive($event)" (trashrefresh)=" iconautorefresh($event)" (refreshcolor)=" colorRefresh($event)"></app-icons>
   </mat-card>
   </div>
   </div>

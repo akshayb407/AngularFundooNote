@@ -66,6 +66,7 @@ export class NotesService {
   }
      
 NotesColor(data:any){
+  console.log(data);
   let header = {
     headers:new HttpHeaders({
       'Content-Type':'application/json',
@@ -73,8 +74,17 @@ NotesColor(data:any){
     })
   }
   
-  return this.httpService.putservice(`https://localhost:44353/api/Notes/Color?noteid=${data.noteID}&color=${data.color}`,{},true,header)
+  return this.httpService.putservice(`https://localhost:44353/api/Notes/Color?noteid=${data.noteID}&color=${data.color}`,{},true,header);
 }
-//https://localhost:44353/api/Notes/Color?noteid=69&color=blue
+DeleteNotes(data:any){
+  console.log(data);
+  let header={
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization':'Bearer '+this.token
+    })
+  }
+  return this.httpService.DeleteService('https://localhost:44353/api/Notes/Delete?NoteId='+data,{},true,header);
+ }
 
 }

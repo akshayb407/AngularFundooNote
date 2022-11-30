@@ -7,7 +7,7 @@ import { NotesService } from 'src/app/Services/notesServices/notes.service';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
-
+  @Output()messageEvent = new EventEmitter<any>();
   archiveList: any;
   constructor(private note:NotesService) { }
 
@@ -23,22 +23,10 @@ export class ArchiveComponent implements OnInit {
         // return Object.isArchieve==true && Object.isTrash == false;
       })
       console.log("Archive notes ",this.archiveList);
-      
-    })
-  // getArchiveNotes(){
-  //   this.note.getNotes().subscribe((response:any)=>{
-  //     this.archiveList=response;
-  //     // console.log(this.archiveList);
-  //     this.archiveList.reverse();
-  //     this.archiveList=this.archiveList.filter((object:any)=>{
-  //      return object.isArchieve==true;
-  //     })
-  //     console.log("Archive notes ",this.archiveList);
-  //     // this.messageEvent.emit(response)
-  //    })
-  // } 
-  // receiveMessage(event: any) {
-  //   this.getArchiveNotes();
-  // }} 
+      this.messageEvent.emit(Response)
+    })   
   }
-}
+  recivemsg(event:any){
+    console.log(event);
+    this.getArchiveNotes();
+}}

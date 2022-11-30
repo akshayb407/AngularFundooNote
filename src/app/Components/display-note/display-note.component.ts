@@ -10,6 +10,9 @@ import { UpdateNotesComponent } from '../update-notes/update-notes.component';
 export class DisplayNoteComponent implements OnInit {
   @Input() childMessage:any;
   getAllNotes: any;
+  @Output() refreshDisplay=new EventEmitter<any>();
+  @Output() messagevent=new EventEmitter<any>();
+  @Output() colorchange=new EventEmitter<any>();
   
 
   //show=false;
@@ -29,18 +32,20 @@ export class DisplayNoteComponent implements OnInit {
       this.getAllNotes.emit(response);
     })
   }
-  // openDialog(notes:any): void {
-  //   const dialogRef = this.dialog.open(UpdateNotesComponent, {
-  //     width: '40%',
-  //     height: 'auto',
-  //     panelClass: 'updateDialog',
-  //     data: notes,
-  //   });
-  //   dialogRef.afterClosed().subscribe(response => {
-  //     console.log('The dialog was closed', response);
-  //     // this.getAllNotes.emit(response);
-  //   })
-  // }
+  notearchive(event:any){
+    console.log(event);
+    
+    this.messagevent.emit(event)
+  }
+  iconautorefresh(event:any){
+    console.log(event);   
+    this.refreshDisplay.emit(event)
+    
+  }
+  colorRefresh(event:any){
+   this.colorchange.emit(event)
+  }
+ 
 }
 
   

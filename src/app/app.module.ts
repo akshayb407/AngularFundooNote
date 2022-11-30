@@ -32,7 +32,7 @@ import { TakeNoteComponent } from './Components/take-note/take-note.component';
 import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayNoteComponent } from './Components/display-note/display-note.component';
 import { UpdateNotesComponent } from './Components/update-notes/update-notes.component';
-
+import { AuthgaurdService } from './Services/Authgaurdservice/authgaurd.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,7 @@ import { UpdateNotesComponent } from './Components/update-notes/update-notes.com
     MatTooltipModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [AuthgaurdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

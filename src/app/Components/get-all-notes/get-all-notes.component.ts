@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NotesService } from 'src/app/Services/notesServices/notes.service';
 
 @Component({
@@ -7,7 +7,8 @@ import { NotesService } from 'src/app/Services/notesServices/notes.service';
   styleUrls: ['./get-all-notes.component.scss']
 })
 export class GetAllNotesComponent implements OnInit {
-
+  @Output() changeNoteEvent = new EventEmitter<string>();
+  @Output() displayicons = new EventEmitter<string>();
   noteArray:any;
 
   constructor(private notes:NotesService) { }
@@ -23,7 +24,7 @@ export class GetAllNotesComponent implements OnInit {
       this.noteArray = this.noteArray.reverse()
       console.log(this.noteArray)
       this.noteArray = this.noteArray.filter((object: any) => {
-        return object.isArchive == false;
+        return object.isArchive === false && object.isTrash===false;
       })
       console.log(this.noteArray)
     })
@@ -32,19 +33,22 @@ export class GetAllNotesComponent implements OnInit {
     console.log(e);
     this.getAllNotes();
   }
-
-  // getAllNotes(){
+  autotakeenote(event:any){
+    console.log(event);
+    this.getAllNotes();
+  }
+  autodispalay(event:any){
+    console.log(event);
     
-  //   this.notes.getNotes().subscribe((response:any)=>{
-  //     //console.log(response);
-  //     this.noteArray=response;
-  //     //this.noteArray=this.noteArray.reverse()
-  //    console.log(this.noteArray)
-  //   })
-  //   }
-  //   receiveMeassage(e:any){
-  //     console.log(e);
-  //   this.getAllNotes();
-  //   }
-  //    }
+    this.getAllNotes();
+  }
+  autoarchive(event:any){
+    console.log(event);
+    this.getAllNotes();
+  }
+ 
+  iconrefresh(event:any){
+    console.log(event);
+    this.getAllNotes();
+  }
 }
