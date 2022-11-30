@@ -37,6 +37,11 @@ export class DisplayNoteComponent implements OnInit {
     
     this.messagevent.emit(event)
   }
+  noteunarchive(event:any){
+    console.log(event);
+    
+    this.messagevent.emit(event)
+  }
   iconautorefresh(event:any){
     console.log(event);   
     this.refreshDisplay.emit(event)

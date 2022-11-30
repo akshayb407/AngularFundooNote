@@ -5,4 +5,4 @@
 <!-- <app-take-note (messageEvent)="receiveMeassage($event)"></app-take-note> -->
 <app-take-note  (messageEvent)=" autotakeenote($event)"></app-take-note>
 <!-- <app-display-note [childMessage]="noteArray"></app-display-note> -->
-<app-display-note  [childMessage]="noteArray"(messagevent)=" autoarchive($event)"(refreshDisplay)=" iconrefresh($event)" (colorchange)=" autodispalay($event)"  > </app-display-note>
+<app-display-note  [childMessage]="noteArray"(messagevent)=" autoarchive($event)" (messagevent)="autounarchive($event)" (refreshDisplay)=" iconrefresh($event)" (colorchange)=" autodispalay($event)"  > </app-display-note>

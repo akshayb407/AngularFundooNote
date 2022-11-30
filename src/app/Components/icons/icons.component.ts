@@ -15,6 +15,7 @@ export class IconsComponent implements OnInit {
   @Output() refreshcolor=new EventEmitter<any>();
   @Output() trashrefresh=new EventEmitter<any>();
   @Output() archiverefresh=new EventEmitter<any>(); 
+  @Output() unarchiverefresh=new EventEmitter<any>();
 
   isArchieve: boolean = false;
   isTrash: boolean = false;
@@ -59,7 +60,7 @@ export class IconsComponent implements OnInit {
     this.note.ArchiveNotes(this.noteObject.noteID).subscribe((response: any) => {
       console.log(response);
       //window.location.reload();
-      this.displayicons.emit(response);
+      this.unarchiverefresh.emit(response);
     })
   }
   selectColor(color: any) {

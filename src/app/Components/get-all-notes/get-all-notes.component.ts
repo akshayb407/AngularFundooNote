@@ -46,7 +46,10 @@ export class GetAllNotesComponent implements OnInit {
     console.log(event);
     this.getAllNotes();
   }
- 
+  autounarchive(event:any){
+    console.log(event);
+    this.getAllNotes();
+  }
   iconrefresh(event:any){
     console.log(event);
     this.getAllNotes();
